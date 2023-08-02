@@ -114,6 +114,3 @@ def compress_endpoint():
 
     # Return the results as the response in JSON format
     return jsonify(results)
-
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
