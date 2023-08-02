@@ -30,7 +30,7 @@ def switch(qty):
     elif qty == 50:
         return 4
     elif qty == 75:
-        return 2
+        return 3
 
 def compress_image(img_data, quality=50):
     # Load the image from bytes using PIL
@@ -51,7 +51,7 @@ def compress_image(img_data, quality=50):
         for x in range(0, width, block_size):
             block = padded_img_array[y:y+block_size, x:x+block_size, :]
             dct_block = np.fft.fft2(block, axes=(0, 1), norm="ortho")
-            quantized_block = quantize(dct_block, quality)
+            quantized_block = quantize(dct_block, quality=50)
             compressed_img[y:y+block_size, x:x+block_size, :] = quantized_block.real
 
     # Perform block-based IDCT on the compressed image
